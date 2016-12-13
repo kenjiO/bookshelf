@@ -1,0 +1,20 @@
+include partials/header
+#main
+  .col-sm-2
+  .col-sm-10
+    if (results.length > 0)
+      ul#bookResultList
+        each book in  results
+          li
+            a.bookResult(href="/addBook/" + book.id)
+              .bookImage
+                img(src=book.thumbnail)
+              .bookTitleAuthor
+                | #{book.title}
+                br
+                | 
+                if (Array.isArray( book.authors))
+                  = book.authors.join(', ')
+
+    else
+      p No results Found

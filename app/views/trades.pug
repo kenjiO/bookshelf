@@ -1,0 +1,19 @@
+include partials/header
+#main
+  .row
+    .col-sm-4
+    .col-sm-8
+      h3 Trade Requests for #{user}
+
+  each trade in tradeRequests
+    .row
+      .col-sm-1 x
+      .col-sm-2
+        img(src=trade.desiredBook.thumbnail)
+      .col-sm-2
+        img(src=trade.offeredBook.thumbnail)
+      .col-sm-6
+        form(action="/trade", method="post")
+          input(type="hidden", name="tradeId", value=trade.id)
+          input(type="submit", name="tradeAction", value="Yes")
+          input(type="submit", name="tradeAction", value="No")

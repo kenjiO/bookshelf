@@ -1,0 +1,22 @@
+include partials/header
+#main
+  .col-sm-1
+  .col-sm-11
+    if (books && books.length > 0)
+      ul#bookResultList
+        each book in books
+          li
+            .bookTradeButtonDiv
+              if (user && user.username && book.owner && book.owner.toLowerCase() !== user.username.toLowerCase())
+                a.btn.btn-primary(href="/trade/" +book.id) Trade
+            .bookImage
+              img(src=book.thumbnail)
+            .bookTitleAuthor
+              | #{book.title}
+              br
+              | 
+              if (Array.isArray( book.authors))
+                = book.authors.join(', ')
+
+    else
+      p No Books In the Bookshelf yet

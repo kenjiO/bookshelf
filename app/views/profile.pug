@@ -1,0 +1,22 @@
+include partials/header
+#main
+	.col-sm-2
+	form.form-horizontal(action='profile', method='post')
+		fieldset
+			legend Profile
+			.form-group
+				label.control-label.col-sm-2(for='name') Full Name
+				.col-sm-6
+					input.form-control(type='text', name='name', value=user.fullname)
+			.form-group
+				label.control-label.col-sm-2(for='city') City
+				.col-sm-6
+					input.form-control(type='text', name='city', value=user.city)
+			.form-group
+				label.control-label.col-sm-2(for='state') State
+				.col-sm-6
+					input.form-control(type='text', name='state', value=user.state)
+			.form-group
+				.col-sm-2
+				.col-sm-6
+					input(type='submit', name='submit', value='Submit')

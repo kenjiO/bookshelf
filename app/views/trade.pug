@@ -1,0 +1,25 @@
+include partials/header
+script(src='/public/js/tradebook.js')
+#main
+  .col-sm-1
+  .col-sm-11
+    if (myBooks && myBooks.length  > 0)
+      h4 Select which book you will offer to trade
+      ul#bookResultList
+        each book in myBooks
+          li
+            .bookSelectButtonDiv
+              a.btn.btn-primary(href="/trade/"+desiredBookId+"/" +book.id) Select
+              //a.btn.btn-primary(data-desiredBookId=desiredBookId, data-myBookId=book.id) Select
+
+            .bookImage
+              img(src=book.thumbnail)
+            .bookTitleAuthor
+              | #{book.title}
+              br
+              | 
+              if (Array.isArray( book.authors))
+                = book.authors.join(', ')
+
+    else
+      p You don't have any books to trade
